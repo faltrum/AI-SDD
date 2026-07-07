@@ -1,0 +1,193 @@
+name: AI-SDD Local Lab
+version: 1.0.0
+schema: v1
+
+########################################################################
+# AI-SDD MODELS
+########################################################################
+
+models:
+
+  ######################################################################
+  # ARCHITECT
+  ######################################################################
+
+  - name: AI-SDD Architect 8b
+    provider: ollama
+    model: qwen3:8b-q4_K_M
+    apiBase: http://127.0.0.1:11434
+
+    roles:
+      - chat
+
+    defaultCompletionOptions:
+      contextLength: 16384
+      temperature: 0.20
+      maxTokens: 4096
+
+    systemMessage: |
+      You are the AI-SDD Architect.
+
+      Your responsibility is producing technical designs and architectural decisions.
+
+      Never implement production code.
+
+      Stay within your assigned role.
+
+  ######################################################################
+  # PLANNER
+  ######################################################################
+
+  - name: AI-SDD Planner 8b
+    provider: ollama
+    model: qwen3:8b-q4_K_M
+    apiBase: http://127.0.0.1:11434
+
+    roles:
+      - chat
+
+    defaultCompletionOptions:
+      contextLength: 16384
+      temperature: 0.15
+      maxTokens: 4096
+
+    systemMessage: |
+      You are the AI-SDD Planner.
+
+      Your responsibility is creating engineering specifications.
+
+      Never implement software.
+
+      Stay within your assigned role.
+
+  ######################################################################
+  # DEVELOPER
+  ######################################################################
+
+  - name: AI-SDD Developer 7b
+    provider: ollama
+    model: qwen2.5-coder:7b
+    apiBase: http://127.0.0.1:11434
+
+    roles:
+      - chat
+      - edit
+      - apply
+
+    defaultCompletionOptions:
+      contextLength: 16384
+      temperature: 0.10
+      maxTokens: 4096
+
+    systemMessage: |
+      You are the AI-SDD Developer.
+
+      Your responsibility is implementing approved engineering work.
+
+      Stay within your assigned role.
+
+  ######################################################################
+  # AUTOCOMPLETE
+  ######################################################################
+
+  - name: AI-SDD Autocomplete 7b
+    provider: ollama
+    model: qwen2.5-coder:7b
+    apiBase: http://127.0.0.1:11434
+
+    roles:
+      - autocomplete
+
+    defaultCompletionOptions:
+      temperature: 0.05
+      maxTokens: 150
+
+  ######################################################################
+  # REVIEWER
+  ######################################################################
+
+  - name: AI-SDD Reviewer 4b
+    provider: ollama
+    model: gemma3:4b
+    apiBase: http://127.0.0.1:11434
+
+    roles:
+      - chat
+
+    defaultCompletionOptions:
+      contextLength: 8192
+      temperature: 0.10
+      maxTokens: 4096
+
+    systemMessage: |
+      You are the AI-SDD Reviewer.
+
+      Your responsibility is reviewing engineering artifacts and source code.
+
+      Never implement new functionality.
+
+      Stay within your assigned role.
+
+  ######################################################################
+  # DEBUGGER
+  ######################################################################
+
+  - name: AI-SDD Debugger 4b
+    provider: ollama
+    model: gemma3:4b
+    apiBase: http://127.0.0.1:11434
+
+    roles:
+      - chat
+
+    defaultCompletionOptions:
+      contextLength: 8192
+      temperature: 0.10
+      maxTokens: 4096
+
+    systemMessage: |
+      You are the AI-SDD Debugger.
+
+      Your responsibility is diagnosing failures and identifying root causes.
+
+      Never implement new functionality.
+
+      Stay within your assigned role.
+
+  ######################################################################
+  # TEST ENGINEER
+  ######################################################################
+
+  - name: AI-SDD Test Engineer 4b
+    provider: ollama
+    model: gemma3:4b
+    apiBase: http://127.0.0.1:11434
+
+    roles:
+      - chat
+
+    defaultCompletionOptions:
+      contextLength: 8192
+      temperature: 0.10
+      maxTokens: 4096
+
+    systemMessage: |
+      You are the AI-SDD Test Engineer.
+
+      Your responsibility is validating software behaviour through testing.
+
+      Never implement production features.
+
+      Stay within your assigned role.
+
+  ######################################################################
+  # EMBEDDINGS
+  ######################################################################
+
+  - name: AI-SDD Embeddings
+    provider: ollama
+    model: nomic-embed-text
+    apiBase: http://127.0.0.1:11434
+
+    roles:
+      - embed
