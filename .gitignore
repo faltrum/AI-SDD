@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# Continue local state
+.continue/.cache/
+.continue/index/
+
+# macOS
+.DS_Store
+
+# Linux
+*~
+
+# Logs
+*.log
