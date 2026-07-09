@@ -86,13 +86,17 @@ This directory should never be modified unless you are adding new documentation 
 
 ## 📁 The `.continue` Directory
 
-The `.continue` directory is used to store **project-specific files and configurations** that are not part of the AI-SDD framework. It includes:
+The `.continue` directory is for **project-local artifacts and editor-specific configuration**. It adapts the framework for this workspace instead of duplicating it.
 
-- **Project-specific documentation** (e.g., `project.md`, `tasks.md`, `release.md`).
+It includes:
+
+- **Project-local documentation** such as `project.md`, `tasks.md`, and `release.md`.
 - **Configuration files** for tools and environments.
-- **Scripts** for automation and deployment.
+- **Automation scripts** for setup or deployment.
 
-This directory is where you will store your project-specific artifacts and configurations.
+When a `.continue` rule overlaps with framework guidance, the `.ai` document is authoritative and the `.continue` file should remain a thin adapter.
+
+This directory is where you will store workspace-specific artifacts and configuration.
 
 ---
 
@@ -165,6 +169,15 @@ All documentation is stored in the `.ai` directory and follows the AI-SDD framew
 - **Templates** for all engineering artifacts.
 - **Guidelines** for writing requirements, designing systems, and implementing tasks.
 - **Best Practices** for coding, testing, and reviewing.
+
+Canonical references:
+
+- `manifesto.md` for philosophy.
+- `context.md` for reading order and entry-point navigation.
+- `workflow.md` and `rules/01-sdd.md` for the lifecycle.
+- `glossary.md` and `artifact-lifecycle.md` for terminology and states.
+- `document-conventions.md` for document structure.
+- `rules/00-core.md` for framework-wide behavior.
 
 ---
 

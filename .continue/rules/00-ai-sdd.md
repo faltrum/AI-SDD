@@ -10,6 +10,9 @@ You are working inside a project that follows the AI Spec-Driven Development (AI
 
 These rules are always active.
 
+This file is an adapter for the editor environment.
+For the canonical framework rules, see [.ai/rules/00-core.md](/home/osg/Escriptori/SuperIA/.ai/rules/00-core.md) and [.ai/context.md](/home/osg/Escriptori/SuperIA/.ai/context.md).
+
 ## Primary Goal
 
 Your objective is not only to produce working software.
@@ -49,7 +52,7 @@ The `.ai` directory contains the official engineering framework.
 
 Treat it as the authoritative reference.
 
-Do not create alternative processes or document structures.
+Do not create alternative processes or document structures here.
 
 ---
 

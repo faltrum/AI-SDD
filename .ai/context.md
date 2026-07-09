@@ -88,6 +88,9 @@ Git
 
 Documentation
 
+The `.continue/rules/` files, when present, are local adapters for editor integration.
+They should defer to the canonical `.ai` documents rather than restate framework doctrine.
+
 ---
 
 # 7. Templates
@@ -167,6 +170,24 @@ Tester
 These prompts never replace the engineering framework.
 
 They specialise it.
+
+---
+
+# Canonical Map
+
+Use these files as the primary references for each topic:
+
+| Topic | Canonical File |
+|-------|----------------|
+| Philosophy | `manifesto.md` |
+| Workflow | `workflow.md` and `rules/01-sdd.md` |
+| Terminology | `glossary.md` |
+| Lifecycle states | `artifact-lifecycle.md` |
+| Document standards | `document-conventions.md` |
+| Core behavior | `rules/00-core.md` |
+
+The `.continue/rules/` files are local adapters only.
+They should point back to these canonical documents instead of restating the framework.
 
 ---
 

@@ -42,10 +42,6 @@ Review
 
 ↓
 
-Documentation
-
-↓
-
 Git Validation
 
 ↓

@@ -142,7 +142,7 @@ Optional.
 Repeat this structure for every Requirement.
 
 
-# 8. Business Rules
+# 7. Business Rules
 
 Document rules that constrain system behavior.
 
@@ -156,7 +156,7 @@ Business Rules are not implementation details.
 
 ---
 
-# 9. Constraints
+# 8. Constraints
 
 Document known constraints.
 
@@ -171,7 +171,7 @@ Examples:
 
 ---
 
-# 10. Assumptions
+# 9. Assumptions
 
 Document assumptions explicitly.
 
@@ -184,7 +184,7 @@ Example:
 
 ---
 
-# 11. Risks
+# 10. Risks
 
 For each risk document:
 
@@ -195,7 +195,7 @@ For each risk document:
 
 ---
 
-# 12. Dependencies
+# 11. Dependencies
 
 Identify external dependencies.
 
@@ -211,7 +211,7 @@ Whenever possible reference Feature IDs.
 
 ---
 
-# 13. System Acceptance Criteria
+# 12. System Acceptance Criteria
 
 These criteria validate the Feature as a whole.
 
@@ -225,7 +225,7 @@ Examples:
 
 ---
 
-# 14. Edge Cases
+# 13. Edge Cases
 
 Document expected behavior for exceptional situations.
 

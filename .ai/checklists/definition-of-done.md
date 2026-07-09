@@ -48,10 +48,6 @@ Review
 
 ↓
 
-Documentation
-
-↓
-
 Git
 
 ↓
@@ -148,7 +144,7 @@ Implementation is not complete until review finishes.
 
 ---
 
-# Documentation
+# Documentation Validation
 
 Verify:
 

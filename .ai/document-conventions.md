@@ -21,11 +21,36 @@ Every engineering document must be:
 
 Documents should prioritize clarity over brevity.
 
+These conventions apply to generated engineering artifacts and project documentation.
+
+In scope:
+
+- feature.md
+- requirements.md
+- design.md
+- tasks.md
+- adr.md
+- bug.md
+- review reports
+- release reports
+
+Out of scope:
+
+- manifesto.md
+- context.md
+- workflow.md
+- glossary.md
+- artifact-lifecycle.md
+- rule documents under `.ai/rules/`
+- adapter files under `.continue/rules/`
+
+Framework governance documents stay out of scope so they can describe the rules themselves without inheriting the artifact template.
+
 ---
 
 # 2. Document Metadata
 
-Every document begins with a metadata block.
+Every generated engineering artifact begins with a metadata block.
 
 The metadata is written using YAML Front Matter.
 

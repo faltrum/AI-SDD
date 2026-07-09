@@ -6,11 +6,12 @@ alwaysApply: true
 
 # AI-SDD Engineering Workflow
 
-Every engineering task must follow the AI-SDD lifecycle.
+This file is an adapter for the editor environment.
+For the canonical workflow, see [.ai/workflow.md](/home/osg/Escriptori/SuperIA/.ai/workflow.md) and [.ai/rules/01-sdd.md](/home/osg/Escriptori/SuperIA/.ai/rules/01-sdd.md).
 
-Never skip phases.
+This file should only contain local integration notes when needed.
 
-Never merge unrelated phases.
+It must not restate the framework workflow in full.
 
 ---
 

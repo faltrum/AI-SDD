@@ -29,8 +29,6 @@ Testing
     ↓
 Review
     ↓
-Documentation
-    ↓
 Release
 ```
 
@@ -188,23 +186,7 @@ Reviewers identify issues.
 
 ---
 
-# Phase 8 — Documentation
-
-Documentation must be updated whenever software behavior changes.
-
-Examples:
-
-* README
-* API documentation
-* Architecture documentation
-* User guides
-* Configuration guides
-
-Documentation is part of the deliverable.
-
----
-
-# Phase 9 — Release
+# Phase 8 — Release
 
 A release may only occur if:
 
