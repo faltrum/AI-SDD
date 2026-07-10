@@ -59,138 +59,315 @@ This workflow ensures that every phase is completed before moving to the next, r
 
 ## 📁 Project Structure
 
-The repository follows a clear and organized structure to support AI-SDD:
-
 ```
 .
-├── .ai/                  # AI-SDD framework and documentation
-├── .continue/            # Project-specific files and configurations
-├── install.sh            # Script to install dependencies on a new machine
-├── README.md             # This file
-└── src/                  # Source code for AI systems
+├── .ai/                         # AI-SDD framework (Single Source of Truth)
+├── .continue/                   # Continue adapter
+├── .github/                     # GitHub Copilot adapter
+├── .cursor/                     # Cursor adapter
+├── AGENTS.md                    # OpenAI Codex / compatible agents adapter
+├── CLAUDE.md                    # Claude Code adapter
+├── install.sh                   # Development environment setup
+├── README.md                    # This file
+├── src/                         # Source code
+├── tests/                       # Tests
+└── reviews/                     # Review artifacts
 ```
+
+---
+
+# 🤖 AI Assistant Compatibility
+
+AI-SDD is designed to be **AI-platform independent**.
+
+The `.ai` directory contains the engineering methodology and is the **single source of truth** for every supported AI assistant.
+
+Different AI tools use different mechanisms for project instructions. This repository already includes the recommended adapters for the most common AI development environments.
+
+| AI Assistant | Adapter |
+|--------------|---------|
+| Continue | `.continue/` |
+| GitHub Copilot | `.github/copilot-instructions.md` |
+| Cursor | `.cursor/rules/00-ai-sdd.mdc` |
+| Claude Code | `CLAUDE.md` |
+| OpenAI Codex / Compatible Agents | `AGENTS.md` |
+
+These adapters **never duplicate the engineering framework**.
+
+Their only responsibility is to instruct the AI assistant to consult the documentation contained in `.ai` before performing engineering work.
+
+This guarantees:
+
+- A single engineering methodology.
+- Consistent behavior across different AI assistants.
+- Easier maintenance.
+- Future compatibility with additional AI tools.
 
 ---
 
 ## 📁 The `.ai` Directory
 
-The `.ai` directory contains the **official AI-SDD framework** and is the **single source of truth** for all engineering processes. It includes:
+The `.ai` directory contains the **official AI-SDD engineering framework** and is the **single source of truth** for the entire project.
 
-- **Templates** for all engineering artifacts (e.g., `feature.md`, `requirements.md`, `design.md`, etc.).
-- **Guidelines** for writing requirements, designing systems, and implementing tasks.
-- **Documentation** on best practices, coding standards, and testing strategies.
+It includes:
 
-This directory should never be modified unless you are adding new documentation or improving existing templates.
+- Engineering workflow
+- Manifesto
+- Rules
+- Templates
+- Commands
+- Prompts
+- Checklists
+- Glossary
+- Document conventions
+- Lifecycle definitions
+
+Every AI assistant should consult this directory before creating, modifying or reviewing engineering artifacts.
+
+The contents of `.ai` define the engineering methodology.
+
+They should not be duplicated elsewhere.
 
 ---
 
 ## 📁 The `.continue` Directory
 
-The `.continue` directory is for **project-local artifacts and editor-specific configuration**. It adapts the framework for this workspace instead of duplicating it.
+The `.continue` directory contains the **Continue adapter**.
+
+Its purpose is to integrate Continue with the AI-SDD framework.
+
+It contains:
+
+- Continue configuration.
+- Continue-specific rules.
+- Model configuration.
+- Workspace integration.
+
+The files inside this directory should remain lightweight.
+
+They should always redirect Continue to the documentation contained in `.ai`.
+
+The engineering methodology must never be duplicated inside `.continue`.
+
+---
+
+## 📁 The `.github` Directory
+
+The `.github` directory contains the **GitHub Copilot adapter**.
+
+Its purpose is to integrate GitHub Copilot with AI-SDD.
 
 It includes:
 
-- **Project-local documentation** such as `project.md`, `tasks.md`, and `release.md`.
-- **Configuration files** for tools and environments.
-- **Automation scripts** for setup or deployment.
+- Repository instructions for GitHub Copilot.
+- Project-level guidance.
 
-When a `.continue` rule overlaps with framework guidance, the `.ai` document is authoritative and the `.continue` file should remain a thin adapter.
+These instructions simply redirect Copilot to `.ai`.
 
-This directory is where you will store workspace-specific artifacts and configuration.
+They should never duplicate framework documentation.
+
+---
+
+## 📁 The `.cursor` Directory
+
+The `.cursor` directory contains the **Cursor adapter**.
+
+Its purpose is to integrate Cursor with AI-SDD.
+
+It includes:
+
+- Cursor Rules (`.mdc`)
+- Project instructions for Cursor
+
+Cursor rules should remain minimal.
+
+Their only responsibility is to redirect Cursor towards the AI-SDD documentation contained in `.ai`.
+
+---
+
+## 📄 `AGENTS.md`
+
+`AGENTS.md` is the universal adapter for AI agents supporting the AGENTS specification.
+
+Examples include:
+
+- OpenAI Codex
+- Compatible coding agents
+- Future AI development tools
+
+Its responsibility is simply to instruct the agent to use `.ai` as the engineering reference.
+
+The engineering framework itself must never be duplicated inside this file.
+
+---
+
+## 📄 `CLAUDE.md`
+
+`CLAUDE.md` is the adapter for Claude Code.
+
+It provides repository-level instructions for Claude.
+
+Its purpose is identical to the other adapters:
+
+- Point Claude to `.ai`.
+- Follow the AI-SDD workflow.
+- Avoid duplicating documentation.
 
 ---
 
 ## 📦 How to Start with `install.sh` on a New Computer
 
-To set up your development environment, use the `install.sh` script:
+To set up your development environment:
 
 ```bash
 chmod +x install.sh
 ./install.sh
 ```
 
-This script will:
+The script will:
 
-- Update your system.
-- Install essential development tools (C/C++, Python, Docker, VS Code, Ollama).
-- Set up services like SSH.
-- Provide instructions for verifying the installation.
+- Update the operating system.
+- Install essential development tools.
+- Install Docker.
+- Install VS Code.
+- Install Ollama.
+- Configure SSH.
+- Verify the installation.
 
-After running the script, **reboot your system** to ensure all changes take effect.
+After installation, reboot your computer.
 
 ---
 
-## 🧱 How to Start a New Project Using This Repository
+## 🧱 How to Start a New Project
 
-To start a new project using this repository:
+### 1. Clone the repository
 
-### 1. **Clone the Repository**
 ```bash
 git clone https://github.com/your-username/superlab-ia.git
 cd superlab-ia
 ```
 
-### 2. **Install Dependencies**
+### 2. Install the development environment
+
 ```bash
 chmod +x install.sh
 ./install.sh
 ```
 
-### 3. **Create a New Feature**
-Create a new `feature.md` file to describe your project opportunity.
+### 3. Create a Feature
 
-### 4. **Define Requirements**
-Create a `requirements.md` file to describe what your system must do.
+Create:
 
-### 5. **Design the System**
-Create a `design.md` file to describe how your system will be implemented.
+```
+feature.md
+```
 
-### 6. **Break Down into Tasks**
-Create a `tasks.md` file to break the design into implementation work.
+using the template inside:
 
-### 7. **Implement the Code**
-Implement your tasks in the `src/` directory.
+```
+.ai/templates/
+```
 
-### 8. **Write Tests**
-Write tests in the `tests/` directory to validate your implementation.
+### 4. Create Requirements
 
-### 9. **Review the Code**
-Conduct a code review to ensure quality and traceability.
+Create:
 
-### 10. **Release the Project**
-Create a `release.md` file to document what has been delivered.
+```
+requirements.md
+```
+
+### 5. Create the Design
+
+Create:
+
+```
+design.md
+```
+
+and, when required:
+
+```
+adr.md
+```
+
+### 6. Break the work into Tasks
+
+Create:
+
+```
+tasks.md
+```
+
+### 7. Implement
+
+Implement only approved tasks inside:
+
+```
+src/
+```
+
+### 8. Test
+
+Write tests inside:
+
+```
+tests/
+```
+
+### 9. Review
+
+Perform engineering review.
+
+### 10. Release
+
+Create:
+
+```
+release.md
+```
 
 ---
 
 ## 📚 Documentation
 
-All documentation is stored in the `.ai` directory and follows the AI-SDD framework. You can find:
+The AI-SDD framework is fully documented inside `.ai`.
 
-- **Templates** for all engineering artifacts.
-- **Guidelines** for writing requirements, designing systems, and implementing tasks.
-- **Best Practices** for coding, testing, and reviewing.
+Canonical references include:
 
-Canonical references:
+- `manifesto.md`
+- `context.md`
+- `workflow.md`
+- `glossary.md`
+- `artifact-lifecycle.md`
+- `document-conventions.md`
+- `templates/`
+- `rules/`
+- `commands/`
+- `prompts/`
+- `checklists/`
 
-- `manifesto.md` for philosophy.
-- `context.md` for reading order and entry-point navigation.
-- `workflow.md` and `rules/01-sdd.md` for the lifecycle.
-- `glossary.md` and `artifact-lifecycle.md` for terminology and states.
-- `document-conventions.md` for document structure.
-- `rules/00-core.md` for framework-wide behavior.
+Every engineering artifact should trace back to these documents.
 
 ---
 
-## 📌 Final Notes
+## 📌 Engineering Principles
 
-- **Never skip a phase** in the AI-SDD lifecycle.
-- **Always follow the framework** to ensure traceability and maintainability.
-- **Keep your documentation up to date** to reflect your implementation.
+- Never skip engineering phases.
+- Never implement without approved requirements.
+- Requirements define behavior.
+- Design defines architecture.
+- Tasks define implementation work.
+- Code implements approved tasks.
+- Tests validate observable behavior.
+- Reviews validate engineering quality.
+- `.ai` is always the authoritative source.
 
 ---
 
 ## 🚀 Get Started
 
-You're now ready to start building AI systems using the AI-SDD framework. Use this repository as a foundation for your projects, and follow the guidelines to ensure quality, traceability, and maintainability.
+Clone the repository, configure your preferred AI assistant, and begin developing using the AI-SDD engineering methodology.
 
-Happy coding! 🚀
+Regardless of whether you use Continue, GitHub Copilot, Cursor, Claude Code, OpenAI Codex, or another compatible AI assistant, every engineering decision should originate from the AI-SDD framework contained in `.ai`.
+
+Happy engineering! 🚀
