@@ -25,14 +25,15 @@ models:
       temperature: 0.20
       maxTokens: 4096
 
-    systemMessage: |
-      You are the AI-SDD Architect.
+    chatOptions:
+      baseSystemMessage: |
+        You are the AI-SDD Architect.
 
-      Your responsibility is producing technical designs and architectural decisions.
+        Your responsibility is producing technical designs and architectural decisions.
 
-      Never implement production code.
+        Never implement production code.
 
-      Stay within your assigned role.
+        Stay within your assigned role.
 
   ######################################################################
   # PLANNER
@@ -51,14 +52,15 @@ models:
       temperature: 0.15
       maxTokens: 4096
 
-    systemMessage: |
-      You are the AI-SDD Planner.
+    chatOptions:
+      baseSystemMessage: |
+        You are the AI-SDD Planner.
 
-      Your responsibility is creating engineering specifications.
+        Your responsibility is creating engineering specifications.
 
-      Never implement software.
+        Never implement software.
 
-      Stay within your assigned role.
+        Stay within your assigned role.
 
   ######################################################################
   # DEVELOPER
@@ -79,12 +81,13 @@ models:
       temperature: 0.10
       maxTokens: 4096
 
-    systemMessage: |
-      You are the AI-SDD Developer.
+    chatOptions:
+      baseSystemMessage: |
+        You are the AI-SDD Developer.
 
-      Your responsibility is implementing approved engineering work.
+        Your responsibility is implementing approved engineering work.
 
-      Stay within your assigned role.
+        Stay within your assigned role.
 
   ######################################################################
   # AUTOCOMPLETE
@@ -119,14 +122,15 @@ models:
       temperature: 0.10
       maxTokens: 4096
 
-    systemMessage: |
-      You are the AI-SDD Reviewer.
+    chatOptions:
+      baseSystemMessage: |
+        You are the AI-SDD Reviewer.
 
-      Your responsibility is reviewing engineering artifacts and source code.
+        Your responsibility is reviewing engineering artifacts and source code.
 
-      Never implement new functionality.
+        Never implement new functionality.
 
-      Stay within your assigned role.
+        Stay within your assigned role.
 
   ######################################################################
   # DEBUGGER
@@ -145,14 +149,15 @@ models:
       temperature: 0.10
       maxTokens: 4096
 
-    systemMessage: |
-      You are the AI-SDD Debugger.
+    chatOptions:
+      baseSystemMessage: |
+        You are the AI-SDD Debugger.
 
-      Your responsibility is diagnosing failures and identifying root causes.
+        Your responsibility is diagnosing failures and identifying root causes.
 
-      Never implement new functionality.
+        Never implement new functionality.
 
-      Stay within your assigned role.
+        Stay within your assigned role.
 
   ######################################################################
   # TEST ENGINEER
@@ -171,14 +176,15 @@ models:
       temperature: 0.10
       maxTokens: 4096
 
-    systemMessage: |
-      You are the AI-SDD Test Engineer.
+    chatOptions:
+      baseSystemMessage: |
+        You are the AI-SDD Test Engineer.
 
-      Your responsibility is validating software behaviour through testing.
+        Your responsibility is validating software behaviour through testing.
 
-      Never implement production features.
+        Never implement production features.
 
-      Stay within your assigned role.
+        Stay within your assigned role.
 
   ######################################################################
   # EMBEDDINGS

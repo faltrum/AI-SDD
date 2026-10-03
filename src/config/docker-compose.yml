@@ -1,0 +1,131 @@
+## Docker Compose Configuration
+
+### Overview
+
+##This Docker Compose configuration defines the services, networks, and volumes for the SaaS solution that manages 9 different finance companies. It provides a local development and testing environment for the microservices.
+
+### docker-compose.yml
+
+version: '3.8'
+
+services:
+  customer-service:
+    build: ./services/customer_service
+    ports:
+      - "5001:5000"
+    environment:
+      - DATABASE_URL=postgres://user:password@db:5432/customer_db
+    depends_on:
+      - db
+    networks:
+      - finance-network
+
+  account-service:
+    build: ./services/account_service
+    ports:
+      - "5002:5000"
+    environment:
+      - DATABASE_URL=postgres://user:password@db:5432/account_db
+    depends_on:
+      - db
+    networks:
+      - finance-network
+
+  transaction-service:
+    build: ./services/transaction_service
+    ports:
+      - "5003:5000"
+    environment:
+      - DATABASE_URL=postgres://user:password@db:5432/transaction_db
+    depends_on:
+      - db
+    networks:
+      - finance-network
+
+  invoice-service:
+    build: ./services/invoice_service
+    ports:
+      - "5004:5000"
+    environment:
+      - DATABASE_URL=postgres://user:password@db:5432/invoice_db
+    depends_on:
+      - db
+    networks:
+      - finance-network
+
+  budget-service:
+    build: ./services/budget_service
+    ports:
+      - "5005:5000"
+    environment:
+      - DATABASE_URL=postgres://user:password@db:5432/budget_db
+    depends_on:
+      - db
+    networks:
+      - finance-network
+
+  tax-service:
+    build: ./services/tax_service
+    ports:
+      - "5006:5000"
+    environment:
+      - DATABASE_URL=postgres://user:password@db:5432/tax_db
+    depends_on:
+      - db
+    networks:
+      - finance-network
+
+  report-service:
+    build: ./services/report_service
+    ports:
+      - "5007:5000"
+    environment:
+      - DATABASE_URL=postgres://user:password@db:5432/report_db
+    depends_on:
+      - db
+    networks:
+      - finance-network
+
+  user-service:
+    build: ./services/user_service
+    ports:
+      - "5008:5000"
+    environment:
+      - DATABASE_URL=postgres://user:password@db:5432/user_db
+    depends_on:
+      - db
+    networks:
+      - finance-network
+
+  security-service:
+    build: ./services/security_service
+    ports:
+      - "5009:5000"
+    environment:
+      - DATABASE_URL=postgres://user:password@db:5432/security_db
+    depends_on:
+      - db
+    networks:
+      - finance-network
+
+  db:
+    image: postgres:14
+    container_name: finance-db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: finance_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - finance-network
+
+networks:
+  finance-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local

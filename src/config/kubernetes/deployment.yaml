@@ -1,0 +1,39 @@
+## Kubernetes Configuration
+
+### Overview
+
+##This Kubernetes configuration defines the deployment, service, and ingress resources for the SaaS solution that manages 9 different finance companies. It provides a scalable and reliable environment for the microservices.
+
+### Deployment Configuration
+
+###Each microservice will be deployed as a Kubernetes deployment. The following is an example of the deployment configuration for a single microservice:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-service-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: customer-service
+  template:
+    metadata:
+      labels:
+        app: customer-service
+    spec:
+      containers:
+      - name: customer-service
+        image: customer-service:latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: DATABASE_URL
+          value: postgres://user:password@finance-db:5432/customer_db
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
